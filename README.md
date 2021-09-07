@@ -16,4 +16,13 @@ En esta sesión se revisó la introducción y los objetivos del curso, la import
 
 En esta sesión practicamos, mediante el uso de la LAPOP 2018/2019, el manejo de datos etiquetados provenientes de STATA/SPSS. Revisamos la apertura de datos de formatos _"extranjeros"_, la obtención de etiquetas, valores y claves y también se hicieron tablas sencillas de contingencia. 
 
+## Sesión 03: Estadísticas descriptivas y manejo de datos con etiquetas. 
+
+- 7 de Septiembre, 2021.
+
+En esta sesión practicamos la obtención de estadísticas descriptivas a partir de bases de datos etiquetadas. Vimos recodificaciones, tablas de frecuencia, tablas de contingencia, estadísticas descriptivas básicas (media, mediana) y gráficas de densidad y de caja.
+
+
+
+
 
