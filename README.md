@@ -22,6 +22,19 @@ En esta sesión practicamos, mediante el uso de la LAPOP 2018/2019, el manejo de
 
 En esta sesión practicamos la obtención de estadísticas descriptivas a partir de bases de datos etiquetadas. Vimos recodificaciones, tablas de frecuencia, tablas de contingencia, estadísticas descriptivas básicas (media, mediana) y gráficas de densidad y de caja.
 
+## Sesión 04: Recodificación de variables.
+
+- 14 de Septiembre, 2021.
+
+En esta sesión practicamos la recodificación de variables a través de la función sjmisc::rec().
+
+
+## Sesión 05: Medias condicionales y correlación. 
+
+- 21 de Septiembre, 2021.
+
+En esta sesión tuvimos una introducción a las bases de datos de encuestas de INEGI, así como la obtención de medias condicionales (medias agrupadas) y correlación entre dos variables. 
+
 
 
 
