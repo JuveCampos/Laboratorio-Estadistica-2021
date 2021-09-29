@@ -1,28 +1,6 @@
 # Sesión 06 -
 library(tidyverse)
 
-# # Inventamos datos:
-# # Ingreso de los mexicanos
-# 6+3+3+5+2+5
-# extra <- rnorm(n = 1000, mean = 3000, sd = 1000)
-# X = round(rnorm(n = 1000, mean = 12, sd = 3), 0)
-#
-# # 17*x = 40000
-# # x = 40000/17
-# min(X)
-# max(X)
-#
-# ing = 3000 + 2000*X + extra
-# plot(density(ing))
-#
-# cor(ing, X)
-# cor(ing, extra)
-# cor(X, extra)
-#
-# model <- lm(tibble(ing, X, extra),
-#    formula = ing ~ X + extra)
-#
-# summary(model)
 
 # Funciones generadoras de numeros aleatorios en R:
 uniforme <- runif(n = 10, min = 1, max = 6)
