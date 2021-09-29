@@ -35,7 +35,11 @@ En esta sesión practicamos la recodificación de variables a través de la func
 
 En esta sesión tuvimos una introducción a las bases de datos de encuestas de INEGI, así como la obtención de medias condicionales (medias agrupadas) y correlación entre dos variables. 
 
+## Sesión 06: Trabajando con la ENVIPE.
 
+En este video abordamos un análisis inicial de la ENVIPE 2021. Durante esta sesión repasamos: 
 
-
+* Una introducción a la ENVIPE. 
+* Que son los factores de expansión y como se ven los datos en una encuesta
+* Manejo de datos de encuestas con Survey 
 
