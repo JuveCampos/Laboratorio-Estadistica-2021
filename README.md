@@ -37,9 +37,17 @@ En esta sesión tuvimos una introducción a las bases de datos de encuestas de I
 
 ## Sesión 06: Trabajando con la ENVIPE.
 
+- 28 de Septiembre, 2021.
+
 En este video abordamos un análisis inicial de la ENVIPE 2021. Durante esta sesión repasamos: 
 
 * Una introducción a la ENVIPE. 
 * Que son los factores de expansión y como se ven los datos en una encuesta
 * Manejo de datos de encuestas con Survey 
+
+## Sesión 07: Examen de prueba. 
+
+- 5 de Octubre, 2021.
+
+Examen de práctica para repasar ejercicios y conceptos previos al examen. 
 
