@@ -1,0 +1,139 @@
+---
+title: "Examen de Prueba"
+author: "Juvenal Campos"
+date: "10/4/2021"
+output:
+  pdf_document: default
+  html_document: default
+subtitle: MPPP - Estadística
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Sección Teórica. 
+
+* **¿Cuales diferencias puede recordar entre r-`base` y el `tidyverse`? ¿Se puede hacer lo mismo con cualquiera de las dos?** 
+
+* **¿Que hace la librería `haven`? ¿Qué otras librerías utilizamos en lo que va del curso?**
+
+* **¿Qué es una media condicional?**
+
+* **¿Qué es la correlación? ¿Qué significa una correlación de 1, -1 y 0? **
+
+* **¿Qué es una tabla de contingencia?**
+
+* **¿Qué son las etiquetas en una base de datos?**
+
+* **¿Qué diferencia hay entre las etiquetas de variable y las etiquetas de valor?**
+
+* **¿Qué significa recodificar una variable?**
+
+
+# Sección Práctica. 
+
+1. Abra la encuesta que se encuentra en el archivo _"Encuesta_covid.rds"_ y guardala en un objeto llamado `bd`. ¿Qué variables contiene? 
+
+**Ojo: ** Recuerde llamar a las librerías que va a utilizar desde el principio.
+
+```{r cache = FALSE, message=FALSE, warning=FALSE}
+library(haven)
+library(tidyverse)
+library(sjmisc)
+library(sjlabelled)
+
+# Leo la información
+bd <- readRDS("Encuesta_covid.rds")
+
+```
+
+
+2. ¿Qué información contiene la variable `vacunado`? 
+
+```{r}
+# Variable: 
+get_label(bd$estrato)
+get_labels(bd$estrato)
+```
+
+3. ¿Qué información contiene la variable `grado_educ`? 
+
+```{r}
+# Variable: 
+get_label(bd$grado_educ)
+get_labels(bd$grado_educ)
+```
+
+4. ¿Cual es el valor promedio del ingreso mensual? ¿Cual es su desviación estándar? 
+
+```{r}
+# Variable: 
+mean(bd$ingreso_mensual)
+sd(bd$ingreso_mensual)
+```
+
+5. ¿Cual es la correlación entre ingreso y la edad? Utilice el método de Spearman. ¿Cómo podría interpretar el resultado? 
+
+```{r}
+# Variable: 
+cor(bd$ingreso_mensual, 
+    bd$edad, 
+    method = "s")
+```
+
+6. Grafique la relación entre ingreso y edad: 
+
+```{r}
+plot(bd$edad, bd$ingreso_mensual)
+
+bd %>% 
+  ggplot(aes(x = edad, y = ingreso_mensual)) + 
+  geom_point() + 
+  geom_smooth(method = "lm")
+
+```
+
+7. Obtenga la media condicional del ingreso mensual por edad. ¿Cuál es la edad con mayor promedio de ingreso? 
+
+```{r}
+bd %>% 
+  group_by(edad) %>% 
+  summarise(media = mean(ingreso_mensual)) %>% 
+  print(n = Inf) 
+```
+
+8. Elabore una tabla de frecuencias de la variable `vacunado`. ¿Cual es el porcentaje de entrevistados vacunados? 
+
+```{r}
+frq(bd$vacunado)
+```
+
+9. Elabore una tabla de contingencia de las variables `vacunado` y `opinion_vacuna`. ¿Cual es el porcentaje de personas vacunadas que no tienen una opinión favorable sobre la vacuna? 
+
+```{r}
+flat_table(data = bd, opinion_vacuna, vacunado, margin = "col")
+```
+
+10. Obtenga los quintiles del ingreso. 
+
+```{r}
+quantile(x = bd$ingreso_mensual, seq(0,1,by = 0.2))
+```
+
+11. Genere una nueva variable llamada `grupo_edad`, en la cual va a meter en el grupo `Jóvenes` a los que tienen edades de entre 18 a 30 años, `Adultos` a los que tienen entre 31 y 60 años y `Adultos mayores` a los que tienen entre 61 y más. Después obtenga la tabla de contingencia entre `grupo_edad` y `opinion_vacuna.`
+
+```{r}
+bd <- bd %>% 
+  mutate(grupo_edad = rec(edad, 
+                          rec = "min:30 = 1 [Jóvenes]; 
+                                 31:60 = 2 [Adultos];
+                                 61:max = 3 [Adultos mayores]"))
+
+flat_table(bd, grupo_edad, opinion_vacuna, margin = "row")
+
+```
+
+
+
+
